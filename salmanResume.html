@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="resume-icon.png">
+    <title>Salman Abdullah Dandu - Data Analyst Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00d4aa;
+            --secondary-color: #6c5ce7;
+            --accent-color: #fd79a8;
+            --dark-bg: #0f0f23;
+            --card-bg: #1a1a2e;
+            --text-light: #e5e5e5;
+            --text-muted: #a0a0a0;
+            --gradient-1: linear-gradient(135deg, #00d4aa, #6c5ce7);
+            --gradient-2: linear-gradient(135deg, #fd79a8, #fdcb6e);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--dark-bg);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .navbar {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 170, 0.2);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.1);
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .skill-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-card {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .experience-timeline {
+            position: absolute;
+            left: -30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-1);
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 20px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .company-name {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .job-title {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .duration {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .job-description li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background: var(--gradient-1);
+        }
+
+        .objective-card {
+            background: var(--gradient-1);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .stats-counter {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .counter-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .language-tag, .hobby-tag {
+            display: inline-block;
+            background: rgba(0, 212, 170, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.25rem;
+            border: 1px solid rgba(0, 212, 170, 0.3);
+        }
+
+        .education-card {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .experience-timeline {
+                display: none;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+            color: white;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .experience-summary {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(0, 212, 170, 0.2);
+        }
+
+        .summary-stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .summary-stat {
+            flex: 1;
+        }
+
+        .summary-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .summary-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--gradient-1);
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.3);
+        }
+
+        .profile-overlay {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-overlay:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape">
+                <i class="fas fa-chart-bar" style="font-size: 4rem; color: var(--primary-color);"></i>
+            </div>
+            <div class="shape">
+                <i class="fas fa-database" style="font-size: 3rem; color: var(--secondary-color);"></i>
+            </div>
+            <div class="shape">
+                <i class="fas fa-chart-line" style="font-size: 3.5rem; color: var(--accent-color);"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-chart-pie me-2"></i>Salman Dandu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="hero-content fade-in">
+                        <h1 class="hero-title">Salman Abdullah Dandu</h1>
+                        <p class="hero-subtitle">Data Analyst | Business Intelligence Specialist</p>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+91 8484822469</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>salmandandu11@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Pune, Maharashtra, India</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#about" class="btn btn-primary">
+                            <i class="fas fa-arrow-down me-2"></i>Explore My Profile
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="profile-image-container fade-in mb-4">
+                            <img src="salman.png" 
+                                 alt="Salman Abdullah Dandu" 
+                                 class="profile-image">
+                            <div class="profile-overlay">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
+                        <div class="stats-counter fade-in">
+                            <div class="counter-number" data-count="4">0</div>
+                            <div class="counter-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Career Objective</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="objective-card fade-in">
+                        <p class="lead mb-0">
+                            Results-driven data professional with proven expertise in transforming complex datasets into actionable business insights through advanced analytics, interactive dashboards, and data storytelling. Skilled in leveraging Power BI, Tableau, SQL, and data modeling to drive informed decision-making, optimize reporting efficiency, and uncover hidden growth opportunities. Adept at bridging the gap between technical data analysis and strategic business goals, with a passion for delivering impactful solutions that empower organizations to thrive in a data-driven world.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Technical Skills</h2>
+            <div class="row">
+                <!-- Programming Languages and Tools -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h5>Programming</h5>
+                        <p>Python, SQL</p>
+                    </div>
+                </div>
+                
+                <!-- Business Intelligence -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h5>BI Tools</h5>
+                        <p>Power BI, Tableau</p>
+                    </div>
+                </div>
+                
+                <!-- Data Analysis -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h5>Data Analysis</h5>
+                        <p>ETL, Data Modeling, Statistical Analysis</p>
+                    </div>
+                </div>
+                
+                <!-- Reporting -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h5>Reporting</h5>
+                        <p>Dashboard Creation, Data Storytelling</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Detailed Skills -->
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-chart-pie me-2 text-primary"></i>Business Intelligence</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check me-2 text-success"></i>Expertise in Power BI and Tableau for developing interactive dashboards and business reports</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Proficient in data modeling techniques, star schema, and dimensional modeling</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Strong SQL skills for extracting, transforming, and loading (ETL) data from multiple sources</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Knowledge of KPI development, performance tracking, and trend analysis</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Ability to translate business requirements into technical BI solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-microscope me-2 text-primary"></i>Data Analysis</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check me-2 text-success"></i>Proficient in data cleaning, transformation, and preparation for analysis using Excel, SQL, and Python (pandas)</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Strong exploratory data analysis (EDA) skills for identifying trends, correlations, and anomalies</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Solid understanding of statistical analysis and hypothesis testing for business insights</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Ability to create clear, data-driven reports for non-technical stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-file-chart-column me-2 text-primary"></i>Reporting & Analytics</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check me-2 text-success"></i>Skilled in report automation and dashboard creation in Power BI, Tableau, and Excel</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Strong understanding of data governance and ensuring reporting accuracy</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Experience working with stakeholders to define reporting requirements and deliverables</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Ability to maintain and update recurring business reports to ensure consistency</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-paint-brush me-2 text-primary"></i>Data Visualization</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check me-2 text-success"></i>Expert in data storytelling and presenting complex data in simple, visually appealing formats</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Proficient in designing infographics, charts, and dashboards that align with UX/UI principles</li>
+                                <li><i class="fas fa-check me-2 text-success"></i>Strong ability to balance aesthetics with data accuracy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Summary Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience Summary</h2>
+            <div class="experience-summary fade-in">
+                <h4 class="text-center mb-4">Professional Journey Overview</h4>
+                <p class="text-center lead mb-4">
+                    Over 4 years of progressive experience in data analytics and business intelligence, working with leading technology companies to transform data into strategic business value.
+                </p>
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <div class="summary-number">3</div>
+                        <div class="summary-text">Companies</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">40%</div>
+                        <div class="summary-text">Performance Improvement</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">30%</div>
+                        <div class="summary-text">Query Optimization</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number">100+</div>
+                        <div class="summary-text">Dashboards Created</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Experience</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- NVIDIA Experience -->
+                    <div class="experience-card fade-in">
+                        <div class="experience-timeline"></div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="company-name">NVIDIA Graphics Pvt Ltd</h4>
+                                <h5 class="job-title">Business Intelligence (BI) Analyst</h5>
+                                <p class="duration">July 2022 - April 2025</p>
+                                <ul class="job-description">
+                                    <li>Designed and deployed end-to-end BI solutions by gathering business requirements, modeling datasets, and building insightful dashboards</li>
+                                    <li>Collaborated with cross-functional teams to identify key performance indicators (KPIs) and track them using visual analytics</li>
+                                    <li>Optimized dashboard performance through data model refinement and query optimization, reducing load time by over 40%</li>
+                                    <li>Integrated multiple data sources (SQL Server, Excel, APIs) into a unified reporting environment, improving data accuracy and accessibility</li>
+                                    <li>Delivered actionable insights that supported strategic decision-making, resulting in measurable business process improvements</li>
+                                    <li>Worked on training NVIDIA's AI models with provided data</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Xceedance Experience -->
+                    <div class="experience-card fade-in">
+                        <div class="experience-timeline"></div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="company-name">Xceedance Consulting India Pvt Ltd</h4>
+                                <h5 class="job-title">Analyst Programmer L2 – Business Intelligence Team</h5>
+                                <p class="duration">December 2021 - May 2022</p>
+                                <ul class="job-description">
+                                    <li>Designed, developed, and maintained interactive BI dashboards and reports using Power BI and Tableau, enabling stakeholders to track KPIs and make data-driven decisions</li>
+                                    <li>Collaborated with business users to gather requirements, perform gap analysis, and translate needs into technical BI solutions</li>
+                                    <li>Built and optimized data models (star and snowflake schemas) to improve query performance and dashboard responsiveness by over 30%</li>
+                                    <li>Developed and maintained ETL workflows to extract, transform, and load data from multiple sources (SQL databases, Excel, APIs) into BI platforms</li>
+                                    <li>Documented technical processes, dashboard usage guidelines, and data dictionaries for internal knowledge sharing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Idmission Experience -->
+                    <div class="experience-card fade-in">
+                        <div class="experience-timeline"></div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="company-name">Idmission Solution Pvt Ltd</h4>
+                                <h5 class="job-title">Data Verification Expert</h5>
+                                <p class="duration">February 2021 - August 2021</p>
+                                <ul class="job-description">
+                                    <li>Collaborated with the back-end development team to execute a large-scale data validation project, ensuring accuracy, consistency, and compliance of critical business data</li>
+                                    <li>Utilized the company portal and CheckDatabase tool to identify, investigate, and correct data discrepancies across multiple systems</li>
+                                    <li>Applied SQL queries to extract, compare, and verify datasets between source systems and target databases</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Education</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card education-card fade-in">
+                        <div class="card-body">
+                            <h4><i class="fas fa-graduation-cap me-2 text-primary"></i>Bachelor of Engineering</h4>
+                            <h5 class="text-primary">Computer Science & Engineering</h5>
+                            <p class="company-name">Marathwada Mitra Mandal Institute of Technology Lohegaon, Pune</p>
+                            <p class="duration">Graduated: May 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages & Hobbies Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-language me-2 text-primary"></i>Languages</h4>
+                            <div class="mt-3">
+                                <span class="language-tag">English</span>
+                                <span class="language-tag">Hindi</span>
+                                <span class="language-tag">Urdu</span>
+                                <span class="language-tag">Marathi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-heart me-2 text-primary"></i>Hobbies</h4>
+                            <div class="mt-3">
+                                <span class="hobby-tag"><i class="fas fa-baseball-ball me-1"></i>Cricket</span>
+                                <span class="hobby-tag"><i class="fas fa-swimmer me-1"></i>Swimming</span>
+                                <span class="hobby-tag"><i class="fas fa-dumbbell me-1"></i>Fitness Routines</span>
+                                <span class="hobby-tag"><i class="fas fa-plane me-1"></i>Travel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card fade-in">
+                        <div class="card-body text-center">
+                            <h4 class="mb-4">Let's Connect!</h4>
+                            <p class="lead mb-4">Ready to transform your data into actionable insights? Let's discuss how I can help drive your business forward.</p>
+                            
+                            <div class="contact-info justify-content-center">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+91 8484822469</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>salmandandu11@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Pune, Maharashtra, India</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <a href="mailto:salmandandu11@gmail.com" class="btn btn-primary me-3">
+                                    <i class="fas fa-envelope me-2"></i>Send Email
+                                </a>
+                                <a href="tel:+918484822469" class="btn btn-outline-primary">
+                                    <i class="fas fa-phone me-2"></i>Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="background: var(--card-bg); padding: 40px 0;">
+        <div class="container">
+            <div class="text-center">
+                <h5 class="text-primary mb-3">Salman Abdullah Dandu</h5>
+                <p class="text-muted">Transforming Data into Strategic Business Value</p>
+                <div class="mt-3">
+                    <span class="text-muted">© 2025 Salman Abdullah Dandu. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Smooth scrolling for navigation links
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                }
+            });
+
+            // Fade in animation on scroll
+            function checkFadeIn() {
+                $('.fade-in').each(function() {
+                    var elementTop = $(this).offset().top;
+                    var elementBottom = elementTop + $(this).outerHeight();
+                    var viewportTop = $(window).scrollTop();
+                    var viewportBottom = viewportTop + $(window).height();
+                    
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+
+            // Counter animation
+            function animateCounters() {
+                $('.counter-number').each(function() {
+                    var $this = $(this);
+                    var countTo = $this.attr('data-count');
+                    var currentCount = parseInt($this.text());
+                    
+                    if (currentCount < countTo) {
+                        $({ count: currentCount }).animate({
+                            count: countTo
+                        }, {
+                            duration: 2000,
+                            easing: 'swing',
+                            step: function() {
+                                $this.text(Math.floor(this.count));
+                            },
+                            complete: function() {
+                                $this.text(this.count);
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Navbar background on scroll
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+                
+                checkFadeIn();
+                
+                // Animate counters when they come into view
+                var counterSection = $('.stats-counter');
+                if (counterSection.length) {
+                    var counterTop = counterSection.offset().top;
+                    var counterBottom = counterTop + counterSection.outerHeight();
+                    var viewportTop = $(window).scrollTop();
+                    var viewportBottom = viewportTop + $(window).height();
+                    
+                    if (counterBottom > viewportTop && counterTop < viewportBottom) {
+                        animateCounters();
+                    }
+                }
+            });
+
+            // Initial check for visible elements
+            checkFadeIn();
+
+            // Typing effect for hero title
+            function typeWriter(element, text, speed = 100) {
+                let i = 0;
+                element.innerHTML = '';
+                
+                function typing() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typing, speed);
+                    }
+                }
+                typing();
+            }
+
+            // Initialize typing effect
+            setTimeout(function() {
+                const heroTitle = document.querySelector('.hero-title');
+                if (heroTitle) {
+                    const originalText = heroTitle.textContent;
+                    typeWriter(heroTitle, originalText, 80);
+                }
+            }, 500);
+
+            // Particle animation effect
+            function createParticle() {
+                const particle = $('<div class="particle"></div>');
+                const size = Math.random() * 3 + 1;
+                const startX = Math.random() * window.innerWidth;
+                const duration = Math.random() * 3000 + 2000;
+                
+                particle.css({
+                    position: 'fixed',
+                    left: startX + 'px',
+                    bottom: '-10px',
+                    width: size + 'px',
+                    height: size + 'px',
+                    background: 'rgba(0, 212, 170, 0.6)',
+                    borderRadius: '50%',
+                    pointerEvents: 'none',
+                    zIndex: 1
+                });
+                
+                $('body').append(particle);
+                
+                particle.animate({
+                    bottom: window.innerHeight + 10 + 'px',
+                    opacity: 0
+                }, duration, function() {
+                    particle.remove();
+                });
+            }
+
+            // Create particles periodically
+            setInterval(createParticle, 2000);
+
+            // Add hover effects to cards
+            $('.card').hover(
+                function() {
+                    $(this).css('transform', 'translateY(-10px) scale(1.02)');
+                },
+                function() {
+                    $(this).css('transform', 'translateY(0) scale(1)');
+                }
+            );
+
+            // Skills progress animation
+            $('.skill-card').each(function(index) {
+                $(this).css('animation-delay', (index * 0.1) + 's');
+            });
+
+            // Mobile menu auto-close
+            $('.navbar-nav a').on('click', function() {
+                $('.navbar-collapse').collapse('hide');
+            });
+
+            // Add active class to nav links based on scroll position
+            $(window).scroll(function() {
+                var scrollPos = $(document).scrollTop();
+                $('.navbar-nav a').each(function() {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr("href"));
+                    if (refElement.position() && refElement.position().top <= scrollPos + 100 && refElement.position().top + refElement.height() > scrollPos) {
+                        $('.navbar-nav a').removeClass("active");
+                        currLink.addClass("active");
+                    }
+                });
+            });
+
+            // Preloader effect
+            $('body').css('opacity', '0');
+            $(window).on('load', function() {
+                $('body').animate({opacity: '1'}, 1000);
+            });
+
+            // Add dynamic background color change
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                var height = $(document).height() - $(window).height();
+                var percent = scroll / height;
+                
+                var hue1 = Math.floor(180 + (percent * 60));
+                var hue2 = Math.floor(240 + (percent * 60));
+                
+                $('.animated-bg').css('background', 'linear-gradient(45deg, hsl(' + hue1 + ', 70%, 5%), hsl(' + hue2 + ', 70%, 8%))');
+            });
+
+            // Experience timeline animation
+            $(window).scroll(function() {
+                $('.experience-timeline').each(function() {
+                    var elementTop = $(this).offset().top;
+                    var elementHeight = $(this).height();
+                    var windowTop = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    
+                    var scrollPercent = (windowTop + windowHeight - elementTop) / (windowHeight + elementHeight);
+                    var scalePercent = Math.max(0, Math.min(1, scrollPercent));
+                    
+                    $(this).css('transform', 'scaleY(' + scalePercent + ')');
+                });
+            });
+
+            // Add tooltips to skill icons
+            $('.skill-icon').each(function() {
+                $(this).attr('title', 'Click to learn more');
+                $(this).css('cursor', 'pointer');
+            });
+
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            console.log('Salman Dandu - Data Analyst Portfolio Loaded Successfully! 📊✨');
+        });
+    </script>
+
+</body>
+</html>
